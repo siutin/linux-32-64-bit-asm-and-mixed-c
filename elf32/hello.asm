@@ -12,12 +12,15 @@
 _start:
       mov           ebx, 1
       mov           ecx, message
-      mov           edx, 13
+      mov           edx, messageLen
       mov           eax, 4
       system_call
 
       xor           ebx, ebx
       mov           eax, 1
       system_call
+
+section .data
 message:
       db "Hello World", 10, 0
+messageLen equ $-message
