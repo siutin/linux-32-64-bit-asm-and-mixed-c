@@ -10,14 +10,14 @@
 %define system_call int 0x80
 
 _start:
-      mov           ebx, 1
-      mov           ecx, message
-      mov           edx, messageLen
-      mov           eax, 4
+      mov           eax, 4                    ; system call for write
+      mov           ebx, 1                    ; first arg, stdout
+      mov           ecx, message              ; second arg, starting at message
+      mov           edx, messageLen           ; third arg, message length
       system_call
 
-      xor           ebx, ebx
-      mov           eax, 1
+      mov           eax, 1                    ; system call for exit
+      xor           ebx, ebx                  ; first arg, exit code 0=SUCCESS
       system_call
 
 section .data
