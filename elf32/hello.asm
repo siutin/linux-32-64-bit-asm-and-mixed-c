@@ -4,8 +4,8 @@
 
 [bits 32]
 
-    global _start
-    section .text
+      global        _start
+      section       .text
 
 %define system_call int 0x80
 
@@ -21,6 +21,5 @@ _start:
       system_call
 
 section .data
-message:
-      db "Hello World", 10, 0
-messageLen equ $-message
+      message       db "Hello World", 10, 0
+      messageLen    equ $-message
