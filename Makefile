@@ -4,12 +4,12 @@ all: run
 hello.o: hello.asm
 	nasm -felf64 hello.asm
 
-a.out: hello.o
-	gcc -no-pie -m64 hello.o
+hello: hello.o
+	gcc -no-pie -m64 -o hello hello.o
 	
-run: a.out
-	./a.out
+run: hello
+	./hello
 
 clean:
 	-rm hello.o
-	-rm a.out
+	-rm hello
